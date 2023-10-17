@@ -1,0 +1,92 @@
+---
+title: "Strings and Factors"
+output: html_document
+date: "2023-10-17"
+---
+
+
+```{r}
+library(rvest)
+library(p8105.datasets)
+library(tidyverse)
+```
+
+
+
+## Strings and manipulations
+```{r}
+string_vec = c("My", "name", "is", "Cj")
+str_detect(string_vec, "Cj")
+str_detect(string_vec, "e")
+str_replace(string_vec, "Cj", "CJ")
+```
+
+```{r}
+new_string_vec = c(
+  "i think we all rule for participating",
+  "i think i have been caught",
+  "i think this will be quite fun, actually",
+  "it will be fun, i think"
+)
+
+str_detect(new_string_vec, "i think")
+str_detect(new_string_vec, "^i think") ##^ is line start
+str_detect(new_string_vec, "i think$") ##$ is line end
+```
+
+```{r}
+pumpkin_string_vec = c(
+  "Time for a Pumpkin Spice Latte!",
+  "went to the #pumpkinpatch last weekend",
+  "Pumpkin Pie is obviously the best pie",
+  "SMASHING PUMPKINS -- LIVE IN CONCERT!!"
+)
+
+str_detect(pumpkin_string_vec, "Pumpkin")
+str_detect(pumpkin_string_vec, "[Pp]umpkin")
+```
+
+```{r}
+number_string_vec = c(
+  "7th inning stretch",
+  "1st half soon to begin. Texas won the toss.",
+  "she is 5 feet 4 inches tall",
+  "3AM - can't sleep :("
+)
+
+str_detect(number_string_vec, "[0-9]") 
+
+str_detect(number_string_vec, "^[0-9]")
+
+str_detect(number_string_vec, "^[0-9][a-z]")
+```
+
+```{r}
+dots_string_vec = c(
+  'Its 7:11 in the evening',
+  'want to go to 7-11?',
+  'my flight is AA711',
+  'NetBios: scanning ip 203.167.114.66'
+  )
+
+str_detect(dots_string_vec, "7.11") ## the dot is a wild card and matches anything
+
+```
+
+
+```{r}
+brack_string_vec = c(
+  "The CI is [2,5]",
+  ":-]",
+  ":-[",
+  "I found the answer on pages [6-7]"
+)
+
+str_detect(brack_string_vec, "\\[") #use backslash to denote special character; backslash itself is also a special character so you need to do it again
+str_detect(brack_string_vec, "\\[[0-9]" )
+
+
+```
+
+
+## Factors
