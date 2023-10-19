@@ -438,6 +438,19 @@ str_detect(brack_string_vec, &quot;\\[&quot;) #use backslash to denote special c
 </div>
 <div id="factors" class="section level2">
 <h2>Factors</h2>
+<pre class="r"><code>vec_sex = c(&quot;male&quot;, &quot;male&quot;, &quot;female&quot;, &quot;female&quot;) #just strings!
+vec_sex_fac = factor(c(&quot;male&quot;, &quot;male&quot;, &quot;female&quot;, &quot;female&quot;))
+
+vec_sex #still has quotations around the strings! bc they are characters</code></pre>
+<pre><code>## [1] &quot;male&quot;   &quot;male&quot;   &quot;female&quot; &quot;female&quot;</code></pre>
+<pre class="r"><code>vec_sex_fac ##now there are no quotations, and levels are marked</code></pre>
+<pre><code>## [1] male   male   female female
+## Levels: female male</code></pre>
+<pre class="r"><code>as.numeric(vec_sex_fac) ##allows us to get the nuemrical representation</code></pre>
+<pre><code>## [1] 2 2 1 1</code></pre>
+<pre class="r"><code>vec_sex_fac = fct_relevel(vec_sex_fac, &quot;male&quot;)
+as.numeric(vec_sex_fac)</code></pre>
+<pre><code>## [1] 1 1 2 2</code></pre>
 </div>
 
 
